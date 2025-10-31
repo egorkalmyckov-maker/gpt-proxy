@@ -1,0 +1,19 @@
+{
+  "name": "gpt-proxy-server",
+  "version": "1.0.0",
+  "description": "Простой прокси-сервер для OpenAI API",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
