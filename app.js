@@ -6,6 +6,17 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+// 🔹 Главная страница
+app.get("/", (req, res) => {
+  res.send("🚀 GPT Proxy Server is running!");
+});
+
+// 🔹 Тестовый маршрут
+app.get("/test", (req, res) => {
+  res.json({ status: "ok" });
+});
+
+// 🔹 Проксирование запросов к OpenAI API
 app.post("/proxy", async (req, res) => {
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -25,5 +36,6 @@ app.post("/proxy", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+// 🔹 Render подставляет свой порт через переменную окружения
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => console.log(`✅ Proxy running on port ${PORT}`));
